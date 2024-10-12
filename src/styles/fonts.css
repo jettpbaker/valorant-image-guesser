@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Valorant";
+  src: url("../assets/fonts/ValorantFont.ttf");
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("../assets/fonts/ClashDisplay-Variable.woff2");
+}
+
+:root {
+  --heading-font: "Valorant", sans-serif;
+  --primary-font: "ClashDisplay", sans-serif;
+
+  --background-color: #0f1923;
+  --accent-color: #ff4655;
+  --main-color: #ece8e0;
+}

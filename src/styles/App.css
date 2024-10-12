@@ -50,14 +50,38 @@ main {
   gap: 2rem;
 }
 
-.card {
+.cardBorder {
+  position: relative;
+  height: 100%;
+
+  padding: 3px;
+  border-radius: 5px;
+
+  background-color: #0c1319;
+}
+
+.cardBorder {
+  height: 100%;
+  padding: 3px;
+  border-radius: 5px;
+  position: relative;
+
+  transition: all 1s ease;
+}
+
+.cardBorder:hover {
+  background: radial-gradient(
+    circle at var(--positionX) var(--positionY),
+    red,
+    transparent 150px
+  );
+}
+
+.cardContent {
+  height: 100%;
   display: flex;
   flex-direction: column;
-
-  border: 2px solid var(--accent-color);
   background-color: var(--background-color);
-  border-radius: 10px;
-
   position: relative;
   cursor: pointer;
 }

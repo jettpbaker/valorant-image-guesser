@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Card({ agent }) {
+function Card({ agent, handleSelection }) {
   const [cursorPosition, setCursorPosition] = useState({
     x: undefined,
     y: undefined,
@@ -20,7 +20,10 @@ function Card({ agent }) {
   }
 
   return (
-    <section className="card">
+    <section
+      className="card"
+      onClick={() => handleSelection(agent.displayName)}
+    >
       <div
         className="cardBorder"
         onMouseMove={handleCursorMove}
@@ -30,7 +33,11 @@ function Card({ agent }) {
         }}
       >
         <div className="cardContent">
-          <img src={agent.fullPortrait} alt={agent.displayName} />
+          <img
+            src={agent.fullPortrait}
+            alt={agent.displayName}
+            className="cardImage"
+          />
           <div className="cardName">
             <h2>{agent.displayName}</h2>
           </div>

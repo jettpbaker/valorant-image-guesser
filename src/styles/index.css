@@ -81,6 +81,21 @@ h6 {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.spinner {
+  animation: spin 1000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

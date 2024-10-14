@@ -1,4 +1,5 @@
 import "../styles/App.css";
+import LoadingIndicator from "./LoadingIndicator";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -8,6 +9,8 @@ import { useEffect, useState } from "react";
 let agentDataFetched = false;
 
 function App() {
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [agents, setAgents] = useState([]);
   const [randomAgents, setRandomAgents] = useState([]);
   const [loading, setLoading] = useState([true]);
@@ -40,11 +43,46 @@ function App() {
     setRandomAgents(randomisedAgents);
   }
 
+  function increaseScore() {
+    setScore((prevScore) => prevScore + 1);
+  }
+
+  function resetScore() {
+    setScore(0);
+  }
+
+  function increaseHighScore() {
+    setHighScore((prev) => prev + 1);
+  }
+
   return (
     <>
-      <Header />
-      <Main agents={randomAgents} />
-      <Footer handleRandomiseAgents={handleRandomiseAgents} />
+      {loading ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          <LoadingIndicator />
+        </div>
+      ) : (
+        <>
+          <Header score={score} highScore={highScore} />
+          <Main
+            agents={randomAgents}
+            score={score}
+            increaseScore={increaseScore}
+            resetScore={resetScore}
+            handleRandomiseAgents={handleRandomiseAgents}
+            highScore={highScore}
+            increaseHighScore={increaseHighScore}
+          />
+          <Footer handleRandomiseAgents={handleRandomiseAgents} />
+        </>
+      )}
     </>
   );
 }

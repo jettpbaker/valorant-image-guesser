@@ -1,10 +1,10 @@
-import data from "./Data";
+import { data } from "./Data";
 import Card from "./Card";
 
-export default function Main() {
+export default function Main({ agents }) {
   return (
     <main className="cardContainer">
-      {data.map((agent) => {
+      {agents.map((agent) => {
         return (
           <Card agent={agent} key={agent.displayName} />
           //   <section className="card" key={agent.displayName}>

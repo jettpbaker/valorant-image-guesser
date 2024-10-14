@@ -1,7 +1,7 @@
-export default function Footer() {
+export default function Footer({ handleRandomiseAgents }) {
   return (
     <footer>
-      <button>Randomise</button>
+      <button onClick={handleRandomiseAgents}>Randomise</button>
     </footer>
   );
 }

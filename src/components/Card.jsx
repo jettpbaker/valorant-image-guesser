@@ -30,7 +30,7 @@ function Card({ agent }) {
         }}
       >
         <div className="cardContent">
-          <img src={agent.imgUrl} alt={agent.displayName} />
+          <img src={agent.fullPortrait} alt={agent.displayName} />
           <div className="cardName">
             <h2>{agent.displayName}</h2>
           </div>

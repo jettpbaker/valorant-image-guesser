@@ -50,14 +50,9 @@ main {
   gap: 2rem;
 }
 
-.cardBorder {
-  position: relative;
-  height: 100%;
-
-  padding: 3px;
+.card {
+  background-color: #45ceab;
   border-radius: 5px;
-
-  background-color: #0c1319;
 }
 
 .cardBorder {
@@ -65,16 +60,38 @@ main {
   padding: 3px;
   border-radius: 5px;
   position: relative;
+  /* background-color: #0c1319; /
+  / background-color: #42fed0; */
 
-  transition: all 1s ease;
+  /* background-color: #45ceab;
+  transition: all 1s ease; */
 }
 
-.cardBorder:hover {
+.cardBorder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
   background: radial-gradient(
     circle at var(--positionX) var(--positionY),
-    red,
-    transparent 150px
+    var(--accent-color),
+    transparent 90%
   );
+  pointer-events: none;
+}
+
+.cardBorder:hover::before {
+  /* background: radial-gradient(
+    circle at var(--positionX) var(--positionY),
+    var(--accent-color),
+    transparent 350px
+  ); */
+  opacity: 1;
 }
 
 .cardContent {
@@ -84,6 +101,7 @@ main {
   background-color: var(--background-color);
   position: relative;
   cursor: pointer;
+  z-index: 1;
 }
 
 .card img {

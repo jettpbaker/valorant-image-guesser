@@ -18,6 +18,8 @@ export default function Main({
 
     if (selections.filter((agent) => agent === agentName).length > 0) {
       resetScore();
+      const newSelections = [];
+      setSelections(newSelections);
     } else {
       increaseScore();
       if (newScore > highScore) {
